@@ -431,7 +431,31 @@ function SceneEditorModal({ scene, onClose, onSave }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(formData);
+    
+    // Ensure explanation and equations are arrays
+    const dataToSave = {
+      ...formData,
+      explanation: Array.isArray(formData.explanation) 
+        ? formData.explanation.filter(e => e.trim()) 
+        : formData.explanation.split('\n').filter(e => e.trim()),
+      equations: Array.isArray(formData.equations)
+        ? formData.equations.filter(e => e.trim())
+        : formData.equations.split('\n').filter(e => e.trim())
+    };
+    
+    // Ensure at least one item in arrays
+    if (dataToSave.explanation.length === 0) dataToSave.explanation = [''];
+    if (dataToSave.equations.length === 0) dataToSave.equations = [''];
+    
+    onSave(dataToSave);
+  };
+
+  const handleExplanationChange = (e) => {
+    setFormData({...formData, explanation: e.target.value.split('\n')});
+  };
+
+  const handleEquationsChange = (e) => {
+    setFormData({...formData, equations: e.target.value.split('\n')});
   };
 
   return (
@@ -476,6 +500,34 @@ function SceneEditorModal({ scene, onClose, onSave }) {
           </div>
 
           <div>
+            <label className="block text-gray-300 mb-2 text-sm font-medium">
+              Explanation <span className="text-xs text-gray-500">(one per line)</span>
+            </label>
+            <textarea
+              value={Array.isArray(formData.explanation) ? formData.explanation.join('\n') : formData.explanation}
+              onChange={handleExplanationChange}
+              rows={3}
+              className="w-full px-4 py-2 bg-gray-900 border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              placeholder="Enter explanation points, one per line"
+              data-testid="explanation-input"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-300 mb-2 text-sm font-medium">
+              Equations <span className="text-xs text-gray-500">(one per line)</span>
+            </label>
+            <textarea
+              value={Array.isArray(formData.equations) ? formData.equations.join('\n') : formData.equations}
+              onChange={handleEquationsChange}
+              rows={2}
+              className="w-full px-4 py-2 bg-gray-900 border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent font-mono text-sm"
+              placeholder="Enter equations, one per line (e.g., y = mx + b)"
+              data-testid="equations-input"
+            />
+          </div>
+
+          <div>
             <label className="block text-gray-300 mb-2 text-sm font-medium">Visual Type</label>
             <select
               value={formData.visual}
@@ -498,6 +550,7 @@ function SceneEditorModal({ scene, onClose, onSave }) {
               onChange={(e) => setFormData({...formData, narration: e.target.value})}
               rows={4}
               className="w-full px-4 py-2 bg-gray-900 border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              placeholder="Enter the narration text for this scene"
               data-testid="narration-input"
             />
           </div>
