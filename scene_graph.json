@@ -129,5 +129,17 @@
     ],
     "visual": "none",
     "narration": "Overfitting occurs when a model learns noise in training data"
+  },
+  {
+    "scene_id": 11,
+    "concept": "Test Scene - Black Theme",
+    "explanation": [
+      ""
+    ],
+    "equations": [
+      ""
+    ],
+    "visual": "gradient_descent",
+    "narration": "This is a test narration to verify the form is working correctly."
   }
 ]
