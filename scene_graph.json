@@ -141,5 +141,17 @@
     ],
     "visual": "gradient_descent",
     "narration": "This is a test narration to verify the form is working correctly."
+  },
+  {
+    "scene_id": 12,
+    "concept": "Black Theme Success",
+    "explanation": [
+      "This test proves the black theme is working"
+    ],
+    "equations": [
+      "test = success"
+    ],
+    "visual": "linear_regression",
+    "narration": "The application now has a sleek black theme with working dropdown."
   }
 ]
