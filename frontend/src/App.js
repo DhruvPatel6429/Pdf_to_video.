@@ -96,7 +96,9 @@ function App() {
       setSelectedScene(null);
       fetchData();
     } catch (error) {
-      toast.error('Failed to save scene');
+      const errorMessage = error.response?.data?.detail || 'Failed to save scene';
+      toast.error(errorMessage);
+      console.error('Save error:', error.response?.data);
     }
   };
 
