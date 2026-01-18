@@ -202,5 +202,17 @@
     ],
     "visual": "gradient_descent",
     "narration": "Backpropagation is the fundamental algorithm that enables neural networks to learn. It works by calculating how much each weight contributed to the error, then adjusting weights to reduce that error. This process uses the chain rule from calculus to efficiently compute gradients layer by layer, from output back to input"
+  },
+  {
+    "scene_id": 999,
+    "concept": "Test Scene",
+    "explanation": [
+      "Test explanation"
+    ],
+    "equations": [
+      "E=mc\u00b2"
+    ],
+    "visual": "Test visual",
+    "narration": "Test narration"
   }
 ]
