@@ -214,5 +214,22 @@
     ],
     "visual": "Test visual",
     "narration": "Test narration"
+  },
+  {
+    "scene_id": 21,
+    "concept": "Backpropagation",
+    "explanation": [
+      "Backpropagation is the core algorithm for training neural networks.",
+      "    It calculates gradients by propagating errors backward through layers.",
+      "    Uses the chain rule to compute partial derivatives efficiently.",
+      "    Enables networks to learn from their mistakes."
+    ],
+    "equations": [
+      "\u2202L/\u2202w = \u2202L/\u2202y \u00d7 \u2202y/\u2202w",
+      "    MSE = (1/n)\u03a3(y - \u0177)\u00b2",
+      "    \u03c3(x) = 1/(1 + e^(-x))"
+    ],
+    "visual": "gradient_descent",
+    "narration": "Backpropagation is the fundamental algorithm that enables neural networks to learn. It works by calculating how much each weight contributed to the error, then adjusting weights to reduce that error. This process uses the chain rule from calculus to efficiently compute gradients layer by layer, from output back to input."
   }
 ]
