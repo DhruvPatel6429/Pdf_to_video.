@@ -153,5 +153,20 @@
     ],
     "visual": "linear_regression",
     "narration": "The application now has a sleek black theme with working dropdown."
+  },
+  {
+    "scene_id": 13,
+    "concept": "Test Complete Form",
+    "explanation": [
+      "This is a test explanation",
+      "With multiple lines",
+      "To verify the form works"
+    ],
+    "equations": [
+      "y = mx + b",
+      "E = mc^2"
+    ],
+    "visual": "gradient_descent",
+    "narration": "This is a complete test with all fields filled."
   }
 ]
