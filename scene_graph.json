@@ -1,7 +1,7 @@
 [
   {
     "scene_id": 1,
-    "concept": "Linear Regression (Updated)",
+    "concept": "Linear Regression",
     "explanation": [
       "Linear regression models relationships between variables.",
       "It assumes the output changes linearly with input.",
