@@ -103,31 +103,31 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800">
+    <div className="min-h-screen bg-black">
       <Toaster position="top-right" />
       
       {/* Header */}
-      <header className="glass-effect border-b border-white/20 sticky top-0 z-50">
+      <header className="glass-effect-dark border-b border-cyan-500/20 sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="lg:hidden text-white hover:bg-white/10 p-2 rounded-lg"
+                className="lg:hidden text-cyan-400 hover:bg-cyan-500/10 p-2 rounded-lg"
                 data-testid="sidebar-toggle"
               >
                 {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
               <div className="flex items-center gap-3">
-                <Sparkles className="text-yellow-400" size={32} />
+                <Sparkles className="text-cyan-400" size={32} />
                 <h1 className="text-2xl font-bold text-white">ML Animation Studio</h1>
               </div>
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="hidden md:flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
+              <div className="hidden md:flex items-center gap-2 bg-cyan-500/10 rounded-full px-4 py-2 border border-cyan-500/20">
                 <Activity className="text-green-400" size={20} />
-                <span className="text-white text-sm font-medium">System Online</span>
+                <span className="text-cyan-100 text-sm font-medium">System Online</span>
               </div>
             </div>
           </div>
@@ -136,14 +136,14 @@ function App() {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed lg:sticky top-16 lg:top-0 h-[calc(100vh-4rem)] lg:h-screen w-64 glass-effect border-r border-white/20 transition-transform duration-300 z-40`}>
+        <aside className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 fixed lg:sticky top-16 lg:top-0 h-[calc(100vh-4rem)] lg:h-screen w-64 glass-effect-dark border-r border-cyan-500/20 transition-transform duration-300 z-40`}>
           <nav className="p-6 space-y-2" data-testid="sidebar-nav">
             <button
               onClick={() => setView('dashboard')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                 view === 'dashboard' 
-                  ? 'bg-white/20 text-white' 
-                  : 'text-white/70 hover:bg-white/10 hover:text-white'
+                  ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30' 
+                  : 'text-gray-400 hover:bg-cyan-500/10 hover:text-cyan-300'
               }`}
               data-testid="nav-dashboard"
             >
@@ -155,8 +155,8 @@ function App() {
               onClick={() => setView('scenes')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                 view === 'scenes' 
-                  ? 'bg-white/20 text-white' 
-                  : 'text-white/70 hover:bg-white/10 hover:text-white'
+                  ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30' 
+                  : 'text-gray-400 hover:bg-cyan-500/10 hover:text-cyan-300'
               }`}
               data-testid="nav-scenes"
             >
@@ -169,7 +169,7 @@ function App() {
                 setSelectedScene(null);
                 setShowModal(true);
               }}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-white/70 hover:bg-white/10 hover:text-white transition-all"
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
               data-testid="nav-create-scene"
             >
               <Plus size={20} />
@@ -223,16 +223,16 @@ function DashboardView({ stats, scenes, loading }) {
     <div className="space-y-8 animate-fade-in" data-testid="dashboard-view">
       <div>
         <h2 className="text-3xl font-bold text-white mb-2">Dashboard</h2>
-        <p className="text-white/70">Overview of your ML animation project</p>
+        <p className="text-gray-400">Overview of your ML animation project</p>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <StatCard
-          icon={<Book className="text-blue-400" size={32} />}
+          icon={<Book className="text-cyan-400" size={32} />}
           label="Total Scenes"
           value={stats?.total_scenes || 0}
-          color="blue"
+          color="cyan"
         />
         <StatCard
           icon={<Video className="text-purple-400" size={32} />}
@@ -249,16 +249,16 @@ function DashboardView({ stats, scenes, loading }) {
       </div>
 
       {/* Visual Types Breakdown */}
-      <div className="glass-effect rounded-2xl p-6">
+      <div className="glass-effect-dark rounded-2xl p-6 border border-cyan-500/20">
         <h3 className="text-xl font-bold text-white mb-4">Visual Types Distribution</h3>
         <div className="space-y-3">
           {stats?.visual_types && Object.entries(stats.visual_types).map(([type, count]) => (
             <div key={type} className="flex items-center justify-between">
-              <span className="text-white/80 capitalize">{type.replace('_', ' ')}</span>
+              <span className="text-gray-300 capitalize">{type.replace('_', ' ')}</span>
               <div className="flex items-center gap-3">
-                <div className="w-48 bg-white/10 rounded-full h-2">
+                <div className="w-48 bg-gray-800 rounded-full h-2">
                   <div 
-                    className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all"
+                    className="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full transition-all"
                     style={{ width: `${(count / (stats?.total_scenes || 1)) * 100}%` }}
                   />
                 </div>
@@ -270,7 +270,7 @@ function DashboardView({ stats, scenes, loading }) {
       </div>
 
       {/* Recent Scenes */}
-      <div className="glass-effect rounded-2xl p-6">
+      <div className="glass-effect-dark rounded-2xl p-6 border border-cyan-500/20">
         <h3 className="text-xl font-bold text-white mb-4">Recent Scenes</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {scenes.slice(0, 6).map((scene) => (
@@ -293,7 +293,7 @@ function ScenesView({ scenes, loading, searchQuery, setSearchQuery, handleSearch
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
           <h2 className="text-3xl font-bold text-white mb-2">Scene Library</h2>
-          <p className="text-white/70">Manage and explore your animation scenes</p>
+          <p className="text-gray-400">Manage and explore your animation scenes</p>
         </div>
         
         <div className="flex gap-2">
@@ -303,12 +303,12 @@ function ScenesView({ scenes, loading, searchQuery, setSearchQuery, handleSearch
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-            className="px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 bg-gray-900 border border-cyan-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
             data-testid="search-input"
           />
           <button
             onClick={handleSearch}
-            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all flex items-center gap-2"
+            className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg transition-all flex items-center gap-2"
             data-testid="search-button"
           >
             <Search size={20} />
@@ -329,8 +329,8 @@ function ScenesView({ scenes, loading, searchQuery, setSearchQuery, handleSearch
 
       {scenes.length === 0 && (
         <div className="text-center py-12">
-          <Book className="mx-auto text-white/30 mb-4" size={64} />
-          <p className="text-white/70 text-lg">No scenes found</p>
+          <Book className="mx-auto text-gray-600 mb-4" size={64} />
+          <p className="text-gray-400 text-lg">No scenes found</p>
         </div>
       )}
     </div>
@@ -339,16 +339,22 @@ function ScenesView({ scenes, loading, searchQuery, setSearchQuery, handleSearch
 
 // Stat Card Component
 function StatCard({ icon, label, value, color }) {
+  const colorClasses = {
+    cyan: 'border-cyan-500/30 bg-cyan-500/10',
+    purple: 'border-purple-500/30 bg-purple-500/10',
+    pink: 'border-pink-500/30 bg-pink-500/10'
+  };
+
   return (
-    <div className="glass-effect rounded-2xl p-6 card-hover" data-testid={`stat-card-${label.toLowerCase().replace(' ', '-')}`}>
+    <div className={`glass-effect-dark rounded-2xl p-6 card-hover border ${colorClasses[color]}`} data-testid={`stat-card-${label.toLowerCase().replace(' ', '-')}`}>
       <div className="flex items-center justify-between mb-4">
         {icon}
-        <div className={`px-3 py-1 bg-${color}-500/20 rounded-full`}>
+        <div className={`px-3 py-1 bg-${color}-500/20 rounded-full border border-${color}-500/30`}>
           <span className={`text-${color}-300 text-sm font-medium`}>Active</span>
         </div>
       </div>
       <div>
-        <p className="text-white/70 text-sm mb-1">{label}</p>
+        <p className="text-gray-400 text-sm mb-1">{label}</p>
         <p className="text-4xl font-bold text-white">{value}</p>
       </div>
     </div>
@@ -358,15 +364,15 @@ function StatCard({ icon, label, value, color }) {
 // Scene Card Component
 function SceneCard({ scene, compact = false, onEdit, onDelete }) {
   return (
-    <div className="glass-effect rounded-xl p-5 card-hover" data-testid={`scene-card-${scene.scene_id}`}>
+    <div className="glass-effect-dark rounded-xl p-5 card-hover border border-cyan-500/20" data-testid={`scene-card-${scene.scene_id}`}>
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold">
             {scene.scene_id}
           </div>
           <div>
             <h3 className="text-white font-semibold">{scene.concept}</h3>
-            <span className="text-xs text-white/60 capitalize">{scene.visual}</span>
+            <span className="text-xs text-gray-400 capitalize">{scene.visual}</span>
           </div>
         </div>
         
@@ -374,14 +380,14 @@ function SceneCard({ scene, compact = false, onEdit, onDelete }) {
           <div className="flex gap-2">
             <button
               onClick={onEdit}
-              className="p-2 hover:bg-white/10 rounded-lg text-white/70 hover:text-white transition-all"
+              className="p-2 hover:bg-cyan-500/20 rounded-lg text-gray-400 hover:text-cyan-400 transition-all"
               data-testid={`edit-scene-${scene.scene_id}`}
             >
               <Edit3 size={16} />
             </button>
             <button
               onClick={onDelete}
-              className="p-2 hover:bg-red-500/20 rounded-lg text-white/70 hover:text-red-400 transition-all"
+              className="p-2 hover:bg-red-500/20 rounded-lg text-gray-400 hover:text-red-400 transition-all"
               data-testid={`delete-scene-${scene.scene_id}`}
             >
               <Trash2 size={16} />
@@ -392,17 +398,17 @@ function SceneCard({ scene, compact = false, onEdit, onDelete }) {
       
       {!compact && (
         <>
-          <p className="text-white/60 text-sm mb-3 line-clamp-2">
+          <p className="text-gray-400 text-sm mb-3 line-clamp-2">
             {scene.explanation[0]}
           </p>
           
           {scene.equations.length > 0 && (
-            <div className="bg-white/5 rounded-lg p-2 mb-3">
-              <code className="text-blue-300 text-xs">{scene.equations[0]}</code>
+            <div className="bg-gray-900 rounded-lg p-2 mb-3 border border-cyan-500/20">
+              <code className="text-cyan-400 text-xs">{scene.equations[0]}</code>
             </div>
           )}
           
-          <button className="w-full py-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white rounded-lg flex items-center justify-center gap-2 transition-all">
+          <button className="w-full py-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white rounded-lg flex items-center justify-center gap-2 transition-all">
             <Play size={16} />
             <span className="text-sm font-medium">Preview</span>
           </button>
@@ -429,15 +435,15 @@ function SceneEditorModal({ scene, onClose, onSave }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4" data-testid="scene-editor-modal">
-      <div className="glass-effect rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4" data-testid="scene-editor-modal">
+      <div className="glass-effect-dark rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-cyan-500/30">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-white">
             {scene ? 'Edit Scene' : 'Create New Scene'}
           </h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-white/10 rounded-lg text-white/70 hover:text-white transition-all"
+            className="p-2 hover:bg-gray-800 rounded-lg text-gray-400 hover:text-white transition-all"
             data-testid="close-modal"
           >
             <X size={24} />
@@ -446,53 +452,52 @@ function SceneEditorModal({ scene, onClose, onSave }) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-white/80 mb-2 text-sm font-medium">Scene ID</label>
+            <label className="block text-gray-300 mb-2 text-sm font-medium">Scene ID</label>
             <input
               type="number"
               value={formData.scene_id}
               onChange={(e) => setFormData({...formData, scene_id: parseInt(e.target.value)})}
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-gray-900 border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               disabled={!!scene}
               data-testid="scene-id-input"
             />
           </div>
 
           <div>
-            <label className="block text-white/80 mb-2 text-sm font-medium">Concept</label>
+            <label className="block text-gray-300 mb-2 text-sm font-medium">Concept</label>
             <input
               type="text"
               value={formData.concept}
               onChange={(e) => setFormData({...formData, concept: e.target.value})}
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-gray-900 border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               required
               data-testid="concept-input"
             />
           </div>
 
           <div>
-            <label className="block text-white/80 mb-2 text-sm font-medium">Visual Type</label>
+            <label className="block text-gray-300 mb-2 text-sm font-medium">Visual Type</label>
             <select
               value={formData.visual}
               onChange={(e) => setFormData({...formData, visual: e.target.value})}
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              style={{ color: 'white' }}
+              className="w-full px-4 py-2 bg-gray-900 border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent appearance-none cursor-pointer"
               data-testid="visual-type-select"
             >
-              <option value="none" style={{ background: '#1f2937', color: 'white' }}>None</option>
-              <option value="linear_regression" style={{ background: '#1f2937', color: 'white' }}>Linear Regression</option>
-              <option value="loss_curve" style={{ background: '#1f2937', color: 'white' }}>Loss Curve</option>
-              <option value="gradient_descent" style={{ background: '#1f2937', color: 'white' }}>Gradient Descent</option>
-              <option value="neural_network" style={{ background: '#1f2937', color: 'white' }}>Neural Network</option>
+              <option value="none" className="bg-gray-900 text-white py-2">None</option>
+              <option value="linear_regression" className="bg-gray-900 text-white py-2">Linear Regression</option>
+              <option value="loss_curve" className="bg-gray-900 text-white py-2">Loss Curve</option>
+              <option value="gradient_descent" className="bg-gray-900 text-white py-2">Gradient Descent</option>
+              <option value="neural_network" className="bg-gray-900 text-white py-2">Neural Network</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-white/80 mb-2 text-sm font-medium">Narration</label>
+            <label className="block text-gray-300 mb-2 text-sm font-medium">Narration</label>
             <textarea
               value={formData.narration}
               onChange={(e) => setFormData({...formData, narration: e.target.value})}
               rows={4}
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 bg-gray-900 border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
               data-testid="narration-input"
             />
           </div>
@@ -501,14 +506,14 @@ function SceneEditorModal({ scene, onClose, onSave }) {
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all"
+              className="flex-1 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-all border border-gray-700"
               data-testid="cancel-button"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white rounded-lg transition-all"
+              className="flex-1 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white rounded-lg transition-all"
               data-testid="save-button"
             >
               Save Scene
@@ -524,7 +529,7 @@ function SceneEditorModal({ scene, onClose, onSave }) {
 function LoadingSpinner() {
   return (
     <div className="flex items-center justify-center h-64" data-testid="loading-spinner">
-      <div className="animate-spin rounded-full h-16 w-16 border-4 border-white/20 border-t-white"></div>
+      <div className="animate-spin rounded-full h-16 w-16 border-4 border-gray-800 border-t-cyan-500"></div>
     </div>
   );
 }
