@@ -116,5 +116,18 @@
     ],
     "visual": "none",
     "narration": "Overfitting occurs when a model learns noise in training data"
+  },
+  {
+    "scene_id": 10,
+    "concept": "Overfitting",
+    "explanation": [
+      "Model fits training data too closely",
+      "Poor generalization to new data"
+    ],
+    "equations": [
+      "bias^2 + variance + noise"
+    ],
+    "visual": "none",
+    "narration": "Overfitting occurs when a model learns noise in training data"
   }
 ]
