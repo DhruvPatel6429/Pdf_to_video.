@@ -2,6 +2,7 @@
   "name": "ml-animation-platform",
   "version": "1.0.0",
   "private": true,
+  "proxy": "http://localhost:8001",
   "dependencies": {
     "autoprefixer": "^10.4.23",
     "axios": "^1.6.0",
