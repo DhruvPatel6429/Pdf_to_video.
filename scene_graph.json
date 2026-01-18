@@ -1,0 +1,107 @@
+[
+  {
+    "scene_id": 1,
+    "concept": "Linear Regression",
+    "explanation": [
+      "Linear regression models relationships between variables.",
+      "It assumes the output changes linearly with input.",
+      "The model tries to find the best fitting straight line.",
+      "This line minimizes prediction error across data points."
+    ],
+    "equations": [
+      "y = w x + b"
+    ],
+    "visual": "linear_regression",
+    "narration": "Linear regression models relationships between variables. It assumes that the output changes linearly with the input. The model learns the best fitting straight line by adjusting its slope and bias to minimize prediction error across all data points."
+  },
+  {
+    "scene_id": 2,
+    "concept": "Loss Function",
+    "explanation": [
+      "The loss function measures prediction error.",
+      "It quantifies how far predictions are from actual values.",
+      "A lower loss means better model performance.",
+      "Training aims to minimize this loss."
+    ],
+    "equations": [
+      "J = \\frac{1}{n} \\sum_{i=1}^{n} (y_i - \\hat{y}_i)^2"
+    ],
+    "visual": "loss_curve",
+    "narration": "The loss function measures how wrong the model predictions are. It computes the average squared difference between predicted and actual values. A lower loss indicates better performance, and training aims to minimize this value."
+  },
+  {
+    "scene_id": 3,
+    "concept": "Gradient Descent",
+    "explanation": [
+      "Gradient descent updates parameters iteratively.",
+      "Each update moves opposite to the gradient.",
+      "The gradient points in the direction of steepest increase.",
+      "Moving against it reduces the loss."
+    ],
+    "equations": [
+      "\\theta = \\theta - \\alpha \\nabla J(\\theta)"
+    ],
+    "visual": "gradient_descent",
+    "narration": "Gradient descent is an optimization algorithm used to minimize loss. The gradient points in the direction of steepest increase of the loss. By moving in the opposite direction, the algorithm gradually reduces the loss until it reaches a minimum."
+  },
+  {
+    "scene_id": 4,
+    "concept": "Learning Rate",
+    "explanation": [
+      "The learning rate controls step size.",
+      "It determines how far parameters move each update.",
+      "Too small makes learning slow.",
+      "Too large can cause instability."
+    ],
+    "equations": [
+      "\\theta = \\theta - \\alpha \\nabla J(\\theta)"
+    ],
+    "visual": "gradient_descent",
+    "narration": "The learning rate controls how big each update step is during training. A small learning rate leads to slow learning, while a large learning rate can cause the model to overshoot the minimum."
+  },
+  {
+    "scene_id": 5,
+    "concept": "Convergence",
+    "explanation": [
+      "Convergence means reaching minimum loss.",
+      "Proper step size allows smooth convergence.",
+      "Poor step size causes oscillation.",
+      "Training may never stabilize."
+    ],
+    "equations": [
+      "\\nabla J(\\theta) = 0"
+    ],
+    "visual": "gradient_descent",
+    "narration": "Convergence occurs when the model parameters reach a point where the loss cannot be reduced further. With an appropriate learning rate, gradient descent smoothly converges. Otherwise, it may oscillate or diverge."
+  },
+  {
+    "scene_id": 6,
+    "concept": "Neural Network",
+    "explanation": [
+      "Neural networks consist of layers of neurons.",
+      "Each neuron applies a weighted sum and activation.",
+      "Layers extract increasingly complex features.",
+      "This enables learning non-linear patterns."
+    ],
+    "equations": [
+      "a = \\sigma(Wx + b)"
+    ],
+    "visual": "neural_network",
+    "narration": "Neural networks are composed of layers of neurons. Each neuron computes a weighted sum of inputs followed by an activation function. As data passes through layers, the network learns increasingly complex patterns."
+  },
+  {
+    "scene_id": 7,
+    "concept": "Why Non-Linearity Matters",
+    "explanation": [
+      "Without activation, networks are linear.",
+      "Stacking linear layers changes nothing.",
+      "Activation functions introduce curvature.",
+      "This allows learning complex relationships."
+    ],
+    "equations": [
+      "a = \\sigma(z)"
+    ],
+    "visual": "neural_network",
+    "narration": "Without activation functions, neural networks behave like linear models regardless of depth. Activation functions introduce non-linearity, enabling networks to model complex relationships in data."
+  }
+]

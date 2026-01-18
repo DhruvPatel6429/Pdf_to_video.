@@ -1,0 +1,34 @@
+[
+    {
+        "scene_id": 1,
+        "text": "This scene explains the concept of theory."
+    },
+    {
+        "scene_id": 2,
+        "text": "This scene explains the concept of adam."
+    },
+    {
+        "scene_id": 3,
+        "text": "This scene explains the concept of adagrad."
+    },
+    {
+        "scene_id": 4,
+        "text": "This scene explains the concept of foundations of machine learning machine."
+    },
+    {
+        "scene_id": 5,
+        "text": "This scene explains the concept of machine learning linear."
+    },
+    {
+        "scene_id": 6,
+        "text": "This scene explains the concept of algebra."
+    },
+    {
+        "scene_id": 7,
+        "text": "This scene explains the concept of documorph."
+    },
+    {
+        "scene_id": 8,
+        "text": "This scene explains the concept of descent algorith."
+    }
+]
