@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import './App.css';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL === undefined ? 'http://localhost:8001' : process.env.REACT_APP_BACKEND_URL;
 
 function App() {
   const [scenes, setScenes] = useState([]);
