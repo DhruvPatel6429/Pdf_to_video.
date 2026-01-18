@@ -87,12 +87,15 @@ async def create_scene(scene: Scene):
         raise HTTPException(status_code=400, detail="Scene ID already exists")
     
     scene_dict = scene.dict()
-    await scenes_collection.insert_one(scene_dict)
+    result = await scenes_collection.insert_one(scene_dict)
     
     # Update scene_graph.json
     await sync_to_json()
     
-    return {"message": "Scene created successfully", "scene": scene_dict}
+    # Get the created scene without _id
+    created_scene = await scenes_collection.find_one({"scene_id": scene.scene_id}, {"_id": 0})
+    
+    return {"message": "Scene created successfully", "scene": created_scene}
 
 # Update Scene
 @app.put("/api/scenes/{scene_id}")
