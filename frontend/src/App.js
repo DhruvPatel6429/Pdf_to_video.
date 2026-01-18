@@ -475,13 +475,14 @@ function SceneEditorModal({ scene, onClose, onSave }) {
               value={formData.visual}
               onChange={(e) => setFormData({...formData, visual: e.target.value})}
               className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              style={{ color: 'white' }}
               data-testid="visual-type-select"
             >
-              <option value="none">None</option>
-              <option value="linear_regression">Linear Regression</option>
-              <option value="loss_curve">Loss Curve</option>
-              <option value="gradient_descent">Gradient Descent</option>
-              <option value="neural_network">Neural Network</option>
+              <option value="none" style={{ background: '#1f2937', color: 'white' }}>None</option>
+              <option value="linear_regression" style={{ background: '#1f2937', color: 'white' }}>Linear Regression</option>
+              <option value="loss_curve" style={{ background: '#1f2937', color: 'white' }}>Loss Curve</option>
+              <option value="gradient_descent" style={{ background: '#1f2937', color: 'white' }}>Gradient Descent</option>
+              <option value="neural_network" style={{ background: '#1f2937', color: 'white' }}>Neural Network</option>
             </select>
           </div>
 
