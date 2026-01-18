@@ -3,5 +3,3 @@ uvicorn[standard]==0.24.0
 motor==3.3.2
 pydantic==2.5.0
 python-multipart==0.0.6
-pyttsx3==2.90
-manim==0.18.0
